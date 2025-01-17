@@ -19,7 +19,7 @@ def load_model(model_name):
         tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
         model = AutoModelForCausalLM.from_pretrained(model_path)
         model = model.half()
-    elif model_path in config["LM"]:
+    elif model_name in config["LM"]:
         tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=False)
         model = AutoModelForMaskedLM.from_pretrained(model_path) # Temp change to fix roberta
     else:

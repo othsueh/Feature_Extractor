@@ -21,7 +21,7 @@ def load_model(model_name):
         model = AutoModel.from_pretrained(model_path)
     elif model_name in config["AM"]:
         feature_extractor = AutoProcessor.from_pretrained(model_path, use_fast=False)
-        model = AutoModel.from_pretrained(model_path) # Temp change to fix roberta
+        model = AutoModel.from_pretrained(model_path)
     else:
         raise ValueError(f"Model {model_name} is not supported.")
     model = model.to('cuda')
